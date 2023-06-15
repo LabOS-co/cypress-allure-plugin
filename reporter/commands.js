@@ -34,11 +34,11 @@ const childCommands = {
         const issuePrefix = Cypress.env('issuePrefix');
         allure.issue(name, issuePrefix ? `${issuePrefix}${url}` : url);
     },
-    tms: (allure, name, url) => {
-        const tmsPrefix = Cypress.env('tmsPrefix');
+    bug: (allure, name, url) => {
+        const bugPrefix = Cypress.env('bugPrefix');
         const pattern =
-            tmsPrefix && tmsPrefix.includes('*') ? tmsPrefix : `${tmsPrefix}*`;
-        allure.tms(name, tmsPrefix ? pattern.replace(/\*/g, url) : url);
+            bugPrefix && bugPrefix.includes('*') ? bugPrefix : `${bugPrefix}*`;
+        allure.bug(name, bugPrefix ? pattern.replace(/\*/g, url) : url);
     },
     description: (allure, markdown) => allure.description(markdown),
     descriptionHtml: (allure, html) => allure.descriptionHtml(html),

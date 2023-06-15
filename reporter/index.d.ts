@@ -19,7 +19,7 @@ type LabelName =
     | 'package'
     | 'framework'
     | 'language';
-type LinkType = 'issue' | 'tms';
+type LinkType = 'issue' | 'bug';
 type ContentType =
     | 'text/plain'
     | 'application/xml'
@@ -134,7 +134,7 @@ declare global {
              * @param name
              * @param url
              */
-            tms(name: string, url: string): Allure;
+            bug(name: string, url: string): Allure;
             /**
              * Add test description in markdown format for step/test
              * @param markdown

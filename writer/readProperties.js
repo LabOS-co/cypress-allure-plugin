@@ -46,7 +46,7 @@ const allurePropertiesToEnvVars = (envVars) => {
         ],
         ['allure.video.passed', 'allureAddVideoOnPass'],
         ['allure.link.issue.pattern', 'issuePrefix'],
-        ['allure.link.tms.pattern', 'tmsPrefix'],
+        ['allure.link.bug.pattern', 'bugPrefix'],
         ['allure.analytics', 'allureAddAnalyticLabels']
     ]);
 
