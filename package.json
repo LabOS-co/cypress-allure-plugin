@@ -1,5 +1,5 @@
 {
-    "name": "@shelex/cypress-allure-plugin",
+    "name": "@labos-co/cypress-allure-plugin",
     "version": "0.0.0-development",
     "description": "allure reporting plugin for cypress",
     "main": "reporter/index.js",
@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Shelex/cypress-allure-plugin.git"
+        "url": "https://github.com/LabOS-co/cypress-allure-plugin.git"
     },
     "files": [
         "reporter",
