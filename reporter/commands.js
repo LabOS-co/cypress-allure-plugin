@@ -34,13 +34,11 @@ const childCommands = {
         const issuePrefix = Cypress.env('issuePrefix');
         allure.issue(name, issuePrefix ? `${issuePrefix}${url}` : url);
     },
-    bug: (allure, name, issueId) => {
-        const prefix = issueId.split('-')[0];
-        const domain = prefix === 'LAB' 
-            ? 'https://labos.atlassian.net/browse/' 
-            : 'https://jira.softov.co.il/browse/';
-          allure.bug(name, domain + issueId);
-
+    bug: (allure, name, url) => {
+        const bugPrefix = Cypress.env('bugPrefix');
+        const pattern =
+            bugPrefix && bugPrefix.includes('*') ? bugPrefix : `${bugPrefix}*`;
+        allure.bug(name, bugPrefix ? pattern.replace(/\*/g, url) : url);
     },
     description: (allure, markdown) => allure.description(markdown),
     descriptionHtml: (allure, html) => allure.descriptionHtml(html),
