@@ -31,14 +31,16 @@ const childCommands = {
     label: (allure, name, value) => allure.label(name, value),
     link: (allure, url, name, type) => allure.link(url, name, type),
     issue: (allure, name, url) => {
-        const issuePrefix = Cypress.env('issuePrefix');
-        allure.issue(name, issuePrefix ? `${issuePrefix}${url}` : url);
+        const prefix = url.split('-')[0];
+        const finalUrl =
+            prefix === "LAB" ? `https://labos-lis.atlassian.net/browse/${url}` : `https://jira.softov.co.il/browse/${url}`;
+        allure.issue(name, finalUrl);
     },
     bug: (allure, name, url) => {
-        const bugPrefix = Cypress.env('bugPrefix');
-        const pattern =
-            bugPrefix && bugPrefix.includes('*') ? bugPrefix : `${bugPrefix}*`;
-        allure.bug(name, bugPrefix ? pattern.replace(/\*/g, url) : url);
+        const prefix = url.split('-')[0];
+        const finalUrl =
+            prefix === "LAB" ? `https://labos-lis.atlassian.net/browse/${url}` : `https://jira.softov.co.il/browse/${url}`;
+        allure.bug(name, finalUrl);
     },
     description: (allure, markdown) => allure.description(markdown),
     descriptionHtml: (allure, html) => allure.descriptionHtml(html),
